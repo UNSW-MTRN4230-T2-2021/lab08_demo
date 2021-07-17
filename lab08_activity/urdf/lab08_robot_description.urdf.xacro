@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="ur5e" >
+
+  <!-- TODO: Include ur5e description (HINT: look at ur5e.xacro within the ur_description package)-->
+  <!-- INSERT CODE HERE -->
+
+
+  
+  <link name="world" />
+
+  <!-- Link camera with world joint -->
+  <!-- INSERT CODE HERE -->
+
+
+</robot>
