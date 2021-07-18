@@ -81,6 +81,15 @@ The following pose is recommended for linking the camera to the world: `<origin 
 
 Once this task is completed, running the launch command `roslaunch lab08_activity lab08.launch` should launch Gazebo with the UR5e and a camera added to the world. You can view the camera feed by subscribing to the `/camera/image_raw` topic using RViz.
 
+To view the camera feed in RViz:
+
+1. Launch RViz by typing RViz in the terminal and pressing enter
+2. Within RViz, click on Panels -> Add New Panel -> Displays -> OK
+3. Click the add button in the bottom left-hand corner of RViz
+4. Click on by topic -> Image -> OK
+
+Alternate documentation on how to subscribe to an image topic in RViz can be seen [here](https://answers.ros.org/question/263977/how-to-subscribe-to-image_transport-topic-in-rviz/)
+
 ## Task 3: Spawning a Cube in Gazebo using ROS
 
 The `lab_activity` package includes a python script node located at [`lab08_activity/src/scripts/spawn_box_python.py`](lab08_activity/src/scripts/spawn_box_python.py) and a C++ node located at [`lab08_activity/src/nodes/spawn_box_cpp.cpp`](lab08_activity/src/nodes/spawn_box_cpp.cpp). Your task is to pick one of the two programs and add to it so that when the node is run a white cube is spawned into the Gazebo world.
