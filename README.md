@@ -28,7 +28,7 @@ Then, symbolically link the ur_description package to your lab08 workspace using
 ln -s ~/ur5e_repos/fmauch_universal_robot/ur_description ~/lab_workspaces/lab08_ws/src
 ```
 
-Then finally make your workspace and source the setup script using the following commands:
+Then finally build the lab08 workspace and source the setup script using the following commands:
 
 ```bash
 cd ~/lab_workspaces/lab08_ws
@@ -46,15 +46,16 @@ This should launch Gazebo and add a table to the world
 
 ## Task 1: Including the UR5e in Gazebo
 
-Currently the lab 8 launch file only launches a world including a table. This is because the `lab08_robot_description.urdf.xacro` file located at  `lab08_activity/urdf/lab08_robot_description.urdf.xacro` has not been completed. `lab08.launch` includes this file in the following line:
+Currently the lab08 launch file only launches a world containing a table. This is because the included [`lab08_robot_description.urdf.xacro`](lab08_activity/urdf/lab08_robot_description.urdf.xacro) has not been implemented and is empty.
 
+[`lab08.launch`](lab08_activity/launch/lab08.launch) includes this file in the following line:
 ```xml
   <param  name="robot_description" command="$(find xacro)/xacro '$(find lab08_activity)/urdf/lab08_robot_description.urdf.xacro'"/>
 ``` 
 
 Your task is to add to `lab08_robot_description.urdf.xacro` so that the UR5e model within the `ur_description` package is included and linked to the `/world` link 
 
-The following orientation is recommended for linking the UR5e to the world: `<origin xyz="0.8 0.0 0.675" rpy="0.0 0.0 0.0" />`
+The following pose is recommended for linking the UR5e to the world: `<origin xyz="0.8 0.0 0.675" rpy="0.0 0.0 0.0" />`
 
 Once you have completed this task running the launch command `roslaunch lab08_activity lab08.launch` should launch Gazebo with the UR5e added to the world
 
@@ -64,7 +65,9 @@ Guidance on how to link the UR5e to the `/world` link can be found [here](http:/
 
 ## Task 2: Including a Camera in Gazebo
 
-Now that you have included the UR5e in Gazebo, the second task is to include a camera in Gazebo. To accomplish this you must add to the `lab08_camera_description.urdf.xacro` file located at  `lab08_activity/urdf/lab08_camera_description.urdf.xacro`. `lab08.launch` includes this file in the following line:
+Now that you have included the UR5e in Gazebo, the second task is to include a camera in Gazebo. To accomplish this you must add to [`lab08_camera_description.urdf.xacro`](lab08_activity/urdf/lab08_camera_description.urdf.xacro). 
+
+[`lab08.launch`](lab08_activity/launch/lab08.launch) includes this file in the following line:
 
 ```xml
 <param name="camera_description" command="$(find xacro)/xacro '$(find lab08_activity)/urdf/lab08_camera_description.urdf.xacro'" />
@@ -72,15 +75,15 @@ Now that you have included the UR5e in Gazebo, the second task is to include a c
 
 This task is similar to first task. You must include camera_model within the `lab08_activity` package and link it to the `/world` link
 
-The following orientation is recommended for linking the camera to the world: `<origin xyz="1.9 0.25 1.675" rpy="0.0 ${pi/2.6} ${pi}" />`
+The following pose is recommended for linking the camera to the world: `<origin xyz="1.9 0.25 1.675" rpy="0.0 ${pi/2.6} ${pi}" />`
 
-Once this task is completed running the launch command `roslaunch lab08_activity lab08.launch` should launch Gazebo with the UR5e and a camera added to the world. You can view the camera feed by subscribing to the `/camera/image_raw` topic using RViz
+Once this task is completed, running the launch command `roslaunch lab08_activity lab08.launch` should launch Gazebo with the UR5e and a camera added to the world. You can view the camera feed by subscribing to the `/camera/image_raw` topic using RViz.
 
 ## Task 3: Spawning a Cube in Gazebo using ROS
 
-The `lab_activity` package includes a python script located at `lab08_activity/src/scripts/spawn_box_python.py` and a C++ node located at `lab08_activity/src/nodes/spawn_box_cpp.cpp`. Your task is to add to either the Python script or the C++ node so that when the script/node is run a white cube is spawned into the Gazebo world
+The `lab_activity` package includes a python script node located at [`lab08_activity/src/scripts/spawn_box_python.py`](lab08_activity/src/scripts/spawn_box_python.py) and a C++ node located at [`lab08_activity/src/nodes/spawn_box_cpp.cpp`](lab08_activity/src/nodes/spawn_box_cpp.cpp). Your task is to pick one of the two programs and add to it so that when the node is run a white cube is spawned into the Gazebo world.
 
-The cube model that should be spawned into Gazebo is located at `lab08_activity/models/cube/cube.sdf`
+The cube model that should be spawned into Gazebo is located at [`lab08_activity/models/cube/cube.sdf`](lab08_activity/models/cube/cube.sdf).
 
 You should make use of the `/gazebo/spawn_sdf_model` rosservice in completing this task
 
@@ -104,6 +107,6 @@ Note that you must run `catkin_make` after changing the C++ node for the changes
 
 Your final task is to change either the `spawn_box_python.py` script or the `spawn_box_cpp.cpp` node so that it spawns a textured box instead of a white box
 
-The textured cube model that should be spawned into Gazebo is located at `lab08_activity/models/cube_textured/cube_textured.sdf` however you must alter the `cube_textured.sdf` file so that the material is changed from white to a texture of your choice
+The textured cube model that should be spawned into Gazebo is located at [`lab08_activity/models/cube_textured/cube_textured.sdf`](lab08_activity/models/cube_textured/cube_textured.sdf) however you must alter the `cube_textured.sdf` file so that the material is changed from white to a texture of your choice
 
 Documentation on how to add a material texture to a sdf file can be found [here](http://sdformat.org/spec?ver=1.6&elem=material).
