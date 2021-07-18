@@ -50,7 +50,7 @@
           </box>
         </geometry>
 
-        <!-- INSERT MATERIAL TAG HERE -->
+        <!-- TODO: INSERT MATERIAL TAG HERE -->
         
       </visual>
     </link>

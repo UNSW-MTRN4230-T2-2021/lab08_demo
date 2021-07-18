@@ -23,14 +23,4 @@
   <!-- push camera_description to factory and spawn robot in gazebo -->
   <node name="spawn_camera_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param camera_description -model camera -z 0.1" respawn="false" output="screen" />
 
-
-  <include file="$(find mtrn4230_gazebo)/launch/controller_utils.launch"/>
-
-  <!-- start this controller -->
-  <rosparam file="$(find mtrn4230_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
-  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
-
-  <!-- load other controllers -->
-  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
-
 </launch>
