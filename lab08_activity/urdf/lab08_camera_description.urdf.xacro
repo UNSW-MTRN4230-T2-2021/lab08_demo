@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro"
        name="camera" >
  
-  <!-- Include camera description (Hint: look at camera_model.urdf.xacro within the mtrn4230_gazebo package) -->
+  <!-- Include camera description (Hint: look at camera_model.urdf.xacro within the lab08_activity package) -->
   <!-- TODO: INSERT CODE HERE -->
 
 
