@@ -16,7 +16,8 @@ cd ~/lab_demo_repos
 git clone https://github.com/UNSW-MTRN4230-T2-2021/lab08_demo.git
 ```
 
-Then, symbolically link the lab 8 package located in the repo to your lab08 workspace using the following command:
+
+Then, symbolically link the lab08 package located in the repo to your lab08 workspace using the following command:
 
 ```bash
 ln -s ~/lab_demo_repos/lab08_demo/lab08_activity ~/lab_workspaces/lab08_ws/src
@@ -27,6 +28,7 @@ Then, symbolically link the ur_description package to your lab08 workspace using
 ```bash
 ln -s ~/ur5e_repos/fmauch_universal_robot/ur_description ~/lab_workspaces/lab08_ws/src
 ```
+
 
 Then finally build the lab08 workspace and source the setup script using the following commands:
 
