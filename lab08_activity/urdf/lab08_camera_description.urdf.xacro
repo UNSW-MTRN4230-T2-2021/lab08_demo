@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro"
-       name="ur5e" >
-
-  
+       name="camera" >
+ 
   <!-- Include camera description (Hint: look at camera_model.urdf.xacro within the mtrn4230_gazebo package) -->
-  <!-- INSERT CODE HERE -->
+  <!-- TODO: INSERT CODE HERE -->
 
 
 
   <link name="world" />
 
   <!-- Link camera with world joint -->
-  <!-- INSERT CODE HERE -->
+  <!-- TODO: INSERT CODE HERE -->
   
 </robot>
