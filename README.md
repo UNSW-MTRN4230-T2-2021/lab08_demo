@@ -90,6 +90,8 @@ To view the camera feed in RViz:
 
 Alternate documentation on how to subscribe to an image topic in RViz can be seen [here](https://answers.ros.org/question/263977/how-to-subscribe-to-image_transport-topic-in-rviz/)
 
+Note: If your Virtual Machine crashes when you try subscribe/view the camera feed, try turning off 3D acceleration before subscribing/viewing the camera feed. 
+
 ## Task 3: Spawning a Cube in Gazebo using ROS
 
 The `lab_activity` package includes a python script node located at [`lab08_activity/src/scripts/spawn_box_python.py`](lab08_activity/src/scripts/spawn_box_python.py) and a C++ node located at [`lab08_activity/src/nodes/spawn_box_cpp.cpp`](lab08_activity/src/nodes/spawn_box_cpp.cpp). Your task is to pick one of the two programs and add to it so that when the node is run a white cube is spawned into the Gazebo world.
