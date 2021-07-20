@@ -1,6 +1,11 @@
 
 # MTRN4230 Lab 8
 
+**BUG FIX:** There is an issue with [gazebo updating their api interface and not being backwards compatible](https://github.com/ros-industrial/universal_robot/issues/412#issuecomment-516426447). Please run this command to fix the issue or follow the instructions linked prior:
+```
+sed -i "s/ignitionfuel/ignitionrobotics/g" ~/.ignition/fuel/config.yaml
+```
+
 ## Setup
 
 First, create the new catkin workspace for the lab by running the following command:
