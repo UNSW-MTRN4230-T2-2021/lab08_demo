@@ -3,14 +3,16 @@
        name="ur5e" >
 
   <!-- Include ur5e description (HINT: look at ur5e.xacro within the ur_description package)-->
-  <!-- TODO: INSERT CODE HERE -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5e.xacro" />
 
-
-  
   <link name="world" />
 
-  <!-- Link robot with world joint -->
-  <!-- TODO: INSERT CODE HERE -->
+  <!-- Link ur5e with world joint -->
+  <joint name="ur5e_world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.8 0.0 0.675" rpy="0.0 0.0 0.0" />
+  </joint>
 
 
 </robot>

@@ -20,17 +20,24 @@ from geometry_msgs.msg import *
 
 def spawn_box(pose):
 
-    #INSERT CODE HERE (HINT: look into the gazebo/spawn_sdf_model)
-    pass
-    
+    print("Waiting for gazebo services...")
+    rospy.wait_for_service("gazebo/spawn_sdf_model")
+    print("Got it.")
+    spawn_model = rospy.ServiceProxy("gazebo/spawn_sdf_model", SpawnModel)
 
+    fp = open('src/lab08_activity/models/cube_textured/cube_textured.sdf')
+    
+    sdf = fp.read()
+    fp.close()
+
+    spawn_model('spawnedCubePython',sdf,'/',pose,"world")
 
 
 def main():
 
     rospy.init_node('lab08_python')
 
-    print("generating box (students to do)")
+    print("generating box")
 
     ot = tf.transformations.quaternion_from_euler(0,0,0)
     pose = Pose(position = Point(x=1.71, y=0.1348, z=0.775), orientation = Quaternion(x=ot[0], y=ot[1], z=ot[2], w=ot[3]))
